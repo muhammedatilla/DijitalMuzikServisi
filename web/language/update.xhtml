@@ -9,10 +9,10 @@
     <ui:define name="content">
         <h:form>
             <div class="form-group">
-                <label>Category Name</label>
-                <h:inputText styleClass="form-control" value="#{categoryBean.entity.name}" /> <br />
+                <label>Language Name</label>
+                <h:inputText styleClass="form-control" value="#{languageBean.entity.name}" /> <br />
             </div>
-            <h:commandButton styleClass="btn btn-primary" action="#{categoryBean.update()}" value="Update" />
+            <h:commandButton styleClass="btn btn-primary" action="#{languageBean.update()}" value="Update" />
         </h:form>
     </ui:define>
 </ui:composition>
