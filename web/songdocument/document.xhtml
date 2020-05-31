@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template/admin.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <h:form enctype="multipart/form-data">
+            <div class="form-group">
+                <label>File</label>
+                <h:inputFile styleClass="custom-file" value="#{songDocumentBean.doc}" /> <br />
+            </div>
+            <h:commandButton styleClass="btn btn-primary" action="#{songDocumentBean.upload}" value="Upload" />
+        </h:form>
+        <hr />
+        <h:dataTable styleClass="table table-hover table-striped mt-3" value="#{songDocumentBean.documentList}" var="c">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                    #{c.docID}
+                <div style="width:10px; margin-bottom:5px; margin-top: 20px;">                    
+                    <audio controls="cal">   
+                        <source src="/DijitalMuzikServisi/faces/file/#{c.docName}" type="audio/mp3"/>
+                    </audio>
+                </div>
+            </h:column>
+            <h:column>
+                <f:facet name="header">PATH</f:facet>
+                    #{c.docPath}
+            </h:column>
+            <h:column>
+                <f:facet name="header">NAME</f:facet>
+                    #{c.docName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">TYPE</f:facet>
+                    #{c.docType}
+            </h:column>
+
+        </h:dataTable>
+    </ui:define>
+</ui:composition>
+
