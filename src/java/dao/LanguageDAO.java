@@ -60,5 +60,5 @@ public class LanguageDAO  extends DBConnection {
             System.out.println(e.getMessage());
         }
     }
-    
+
 }

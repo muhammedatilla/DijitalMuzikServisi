@@ -12,7 +12,7 @@ import java.util.Date;
  * @author CASPER
  */
 public class Language {
-    
+
     
     private int languageID;
     private String name;
@@ -50,7 +50,7 @@ public class Language {
     public void setLastUpdate(Date lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
+
     
-    
-    
+
 }

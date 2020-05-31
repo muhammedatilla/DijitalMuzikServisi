@@ -18,10 +18,10 @@ import util.DBConnection;
  */
 public class SongDAO extends DBConnection {
 
-    public void create(Song s) {
+    public void create(Song c) {
         try {
             Statement st = this.connect().createStatement();
-            st.executeUpdate("insert into song (songName, songSinger, songCategory, songAlbum, songLanguage, songHit, songPath) values ('" + s.getSongName() + "', '" + s.getSongSinger() + "', '" + s.getSongCategory() + "', '" + s.getSongAlbum() + "', '" + s.getSongLanguage() + "', '" + s.getSongHit() + "', '" + s.getSongPath() + "')");
+            st.executeUpdate("insert into song (name, singer, category, album, language, songDoc) values ('" + c.getSongName() + "', '" + c.getSinger() + "', '" + c.getCategory() + "', '" + c.getAlbum() + "', '" + c.getLanguage() + "', '" + c.getSongDoc() + "')");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -33,7 +33,7 @@ public class SongDAO extends DBConnection {
             Statement st = this.connect().createStatement();
             ResultSet rs = st.executeQuery("select * from song");
             while (rs.next()) {
-                Song tmp = new Song(rs.getInt("songID"), rs.getString("songName"), rs.getInt("songSinger"), rs.getInt("songCategory"), rs.getInt("songAlbum"), rs.getInt("songLanguage"), rs.getInt("songHit"), rs.getString("songPath"));
+                Song tmp = new Song(rs.getInt("songID"), rs.getString("songName"), rs.getInt("singer"), rs.getInt("category"), rs.getInt("album"), rs.getInt("language"), rs.getInt("songDoc"));
                 list.add(tmp);
             }
         } catch (Exception e) {
@@ -42,19 +42,19 @@ public class SongDAO extends DBConnection {
         return list;
     }
 
-    public void update(Song s) {
+    public void update(Song c) {
         try {
             Statement st = this.connect().createStatement();
-            st.executeUpdate("update song songName = '" + s.getSongName() + "', songSinger = '" + s.getSongSinger() + "', songCategory = '" + s.getSongCategory() + "', songAlbum = '" + s.getSongAlbum() + "', songLanguage = '" + s.getSongLanguage() + "', songHit = '" + s.getSongHit() + "', songPath = '" + s.getSongPath() + "' where songID = " + s.getSongID());
+            st.executeUpdate("update song set name = '" + c.getSongName() + "', singer='"+c.getSinger()+"', category='"+c.getCategory()+"', album='"+c.getAlbum()+"', language='"+c.getLanguage()+"', songDoc='"+c.getSongDoc()+"' where songID=" + c.getSongID());          
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public void delete(Song s) {
+    public void delete(Song c) {
         try {
             Statement st = this.connect().createStatement();
-            st.executeUpdate("delete from song where songID = " + s.getSongID());
+            st.executeUpdate("delete from song where songID = " + c.getSongID());
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

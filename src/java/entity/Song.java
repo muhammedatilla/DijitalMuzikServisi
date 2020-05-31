@@ -13,25 +13,23 @@ public class Song {
 
     private int songID;
     private String songName;
-    private int songSinger;
-    private int songCategory;
-    private int songAlbum;
-    private int songLanguage;
-    private int songHit;
-    private String songPath;
+    private int singer;
+    private int category;
+    private int album;
+    private int language;
+    private int songDoc;
 
     public Song() {
     }
 
-    public Song(int songID, String songName, int songSinger, int songCategory, int songAlbum, int songLanguage, int songHit, String songPath) {
+    public Song(int songID, String songName, int singer, int category, int album, int language, int songDoc) {
         this.songID = songID;
         this.songName = songName;
-        this.songSinger = songSinger;
-        this.songCategory = songCategory;
-        this.songAlbum = songAlbum;
-        this.songLanguage = songLanguage;
-        this.songHit = songHit;
-        this.songPath = songPath;
+        this.singer = singer;
+        this.category = category;
+        this.album = album;
+        this.language = language;
+        this.songDoc = songDoc;
     }
 
     public int getSongID() {
@@ -50,52 +48,44 @@ public class Song {
         this.songName = songName;
     }
 
-    public int getSongSinger() {
-        return songSinger;
+    public int getSinger() {
+        return singer;
     }
 
-    public void setSongSinger(int songSinger) {
-        this.songSinger = songSinger;
+    public void setSinger(int singer) {
+        this.singer = singer;
     }
 
-    public int getSongCategory() {
-        return songCategory;
+    public int getCategory() {
+        return category;
     }
 
-    public void setSongCategory(int songCategory) {
-        this.songCategory = songCategory;
+    public void setCategory(int category) {
+        this.category = category;
     }
 
-    public int getSongAlbum() {
-        return songAlbum;
+    public int getAlbum() {
+        return album;
     }
 
-    public void setSongAlbum(int songAlbum) {
-        this.songAlbum = songAlbum;
+    public void setAlbum(int album) {
+        this.album = album;
     }
 
-    public int getSongLanguage() {
-        return songLanguage;
+    public int getLanguage() {
+        return language;
     }
 
-    public void setSongLanguage(int songLanguage) {
-        this.songLanguage = songLanguage;
+    public void setLanguage(int language) {
+        this.language = language;
     }
 
-    public int getSongHit() {
-        return songHit;
+    public int getSongDoc() {
+        return songDoc;
     }
 
-    public void setSongHit(int songHit) {
-        this.songHit = songHit;
-    }
-
-    public String getSongPath() {
-        return songPath;
-    }
-
-    public void setSongPath(String songPath) {
-        this.songPath = songPath;
+    public void setSongDoc(int songDoc) {
+        this.songDoc = songDoc;
     }
 
 }
