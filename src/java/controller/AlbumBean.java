@@ -39,8 +39,8 @@ public class AlbumBean implements Serializable {
     }
 
     public String update() {
-        this.entity = new Album();
         this.getDao().update(entity);
+        this.entity = new Album();
         return "/album/list";
     }
 

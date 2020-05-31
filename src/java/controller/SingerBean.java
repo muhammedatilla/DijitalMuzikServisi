@@ -5,8 +5,8 @@
  */
 package controller;
 
-import dao.LanguageDAO;
-import entity.Language;
+import dao.SingerDAO;
+import entity.Singer;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
@@ -14,63 +14,63 @@ import javax.inject.Named;
 
 /**
  *
- * @author CASPER
+ * @author SAMSUNG
  */
 @Named
 @SessionScoped
-public class LanguageBean implements Serializable {
+public class SingerBean implements Serializable {
 
-    private LanguageDAO dao;
-    private Language entity;
+    private SingerDAO dao;
+    private Singer entity;
 
     public String create() {
         this.getDao().create(entity);
-        this.entity = new Language();
-        return "/language/list";
+        this.entity = new Singer();
+        return "/singer/list";
     }
 
-    public List<Language> getRead() {
+    public List<Singer> getRead() {
         return this.getDao().read();
     }
 
-    public String updateForm(Language c) {
+    public String updateForm(Singer c) {
         this.entity = c;
-        return "/language/update";
+        return "/singer/update";
     }
 
-    public String update() {
+    public String update() {        
         this.getDao().update(entity);
-        this.entity = new Language();
-        return "/language/list";
+        this.entity = new Singer();
+        return "/singer/list";
     }
 
-    public void delete(Language c) {
+    public void delete(Singer c) {
         this.getDao().delete(c);
     }
 
-    public LanguageBean() {
+    public SingerBean() {
     }
 
-    public LanguageDAO getDao() {
+    public SingerDAO getDao() {
         if (this.dao == null) {
-            this.dao = new LanguageDAO();
+            this.dao = new SingerDAO();
         }
         return dao;
     }
 
-    public void setDao(LanguageDAO dao) {
+    public void setDao(SingerDAO dao) {
         this.dao = dao;
     }
 
-    public Language getEntity() {
+    public Singer getEntity() {
         if (this.entity == null) {
-            this.entity = new Language();
+            this.entity = new Singer();
         }
         return entity;
     }
 
-    public void setEntity(Language entity) {
+    public void setEntity(Singer entity) {
         this.entity = entity;
     }
-
+    
 }

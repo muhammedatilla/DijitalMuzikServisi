@@ -38,9 +38,9 @@ public class CategoryBean implements Serializable {
         return "/category/update";
     }
 
-    public String update() {
-        this.entity = new Category();
+    public String update() {        
         this.getDao().update(entity);
+        this.entity = new Category();
         return "/category/list";
     }
 
